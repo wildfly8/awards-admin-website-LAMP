@@ -1,0 +1,62 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*)$   $1                 [L]
+
+# AJAX
+RewriteRule ^rq/([^/]+)/?$	index.php?url=ajax/$1	[NC,L,QSA]
+
+# OUTSIDE ACCOUNT
+RewriteRule ^login	index.php?url=home/login [NC]
+RewriteRule ^register	index.php?url=home/register [NC]
+RewriteRule ^logout	index.php?url=home/logout [NC]
+
+# USER
+RewriteRule ^admin/dashboard	index.php?url=user/dashboard [QSA]
+RewriteRule ^settings	index.php?url=user/settings [QSA]
+RewriteRule ^change-password	index.php?url=user/change_password [QSA]
+
+# ADMIN
+RewriteRule ^admin/shows/([^/]+)/year/([^/]+)/category/([^/]+)/nomination/([^/]+)/?$ index.php?url=admin/show_year_noms_edit/$1/$2/$3/$4 [QSA]
+RewriteRule ^admin/shows/([^/]+)/year/([^/]+)/category/([^/]+)/?$	index.php?url=admin/show_year_noms/$1/$2/$3 [QSA]
+RewriteRule ^admin/shows/([^/]+)/year/([^/]+)/?$	index.php?url=admin/show_year/$1/$2 [QSA]
+RewriteRule ^admin/shows/([^/]+)/category/([^/]+)/?$	index.php?url=admin/show_category/$1/$2 [QSA]
+RewriteRule ^admin/shows/([^/]+)/?$	index.php?url=admin/show_details/$1 [QSA]
+RewriteRule ^admin/shows	index.php?url=admin/shows [QSA]
+
+RewriteRule ^admin/add/nomination	index.php?url=admin/add_nomination [QSA]
+RewriteRule ^admin/add/person	index.php?url=admin/add_person [QSA]
+RewriteRule ^admin/add/project	index.php?url=admin/add_project [QSA]
+RewriteRule ^admin/add/vendor	index.php?url=admin/add_vendor [QSA]
+RewriteRule ^admin/add/studio	index.php?url=admin/add_studio [QSA]
+RewriteRule ^admin/add/product	index.php?url=admin/add_product [QSA]
+RewriteRule ^admin/add/network	index.php?url=admin/add_network [QSA]
+
+RewriteRule ^admin/people/([^/]+)/?$	index.php?url=admin/people_profile/$1 [QSA]
+RewriteRule ^admin/people	index.php?url=admin/people [QSA]
+
+RewriteRule ^admin/projects/([^/]+)/?$	index.php?url=admin/projects_profile/$1 [QSA]
+RewriteRule ^admin/projects	index.php?url=admin/projects [QSA]
+
+RewriteRule ^admin/vendors/([^/]+)/?$	index.php?url=admin/vendors_profile/$1 [QSA]
+RewriteRule ^admin/vendors	index.php?url=admin/vendors [QSA]
+
+RewriteRule ^admin/studios/([^/]+)/?$	index.php?url=admin/studios_profile/$1 [QSA]
+RewriteRule ^admin/studios	index.php?url=admin/studios [QSA]
+
+RewriteRule ^admin/products/([^/]+)/?$	index.php?url=admin/products_profile/$1 [QSA]
+RewriteRule ^admin/products	index.php?url=admin/products [QSA]
+
+RewriteRule ^admin/networks/([^/]+)/?$	index.php?url=admin/networks_profile/$1 [QSA]
+RewriteRule ^admin/networks	index.php?url=admin/networks [QSA]
+
+RewriteRule ^admin/departments/([^/]+)/?$	index.php?url=admin/departments_profile/$1 [QSA]
+RewriteRule ^admin/departments	index.php?url=admin/departments [QSA]
+
+RewriteRule ^admin/media/([^/]+)/?$	index.php?url=admin/media_viewer/$1 [QSA]
+RewriteRule ^admin/media	index.php?url=admin/media [QSA]
+
+RewriteRule ^admin/songs/([^/]+)/?$	index.php?url=admin/songs_profile/$1 [QSA]
+RewriteRule ^admin/songs	index.php?url=admin/songs [QSA]
+
+# GENERAL
+RewriteRule ^(.*)$   index.php?url=$1   					[QSA,L]
